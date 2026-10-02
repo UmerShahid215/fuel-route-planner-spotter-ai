@@ -40,8 +40,9 @@
   <script>
     const plan = JSON.parse(document.getElementById("plan-data").textContent);
     const map = L.map("map");
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 18, attribution: "&copy; OpenStreetMap contributors"
+    L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+      maxZoom: 19,
+      attribution: "Tiles &copy; Esri &mdash; Source: Esri, HERE, Garmin, FAO, NOAA, USGS"
     }).addTo(map);
     const line = L.geoJSON(plan.route.geometry, { style: { color: "#2563eb", weight: 5 } }).addTo(map);
     map.fitBounds(line.getBounds(), { padding: [30, 30] });
